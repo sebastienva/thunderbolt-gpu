@@ -14,7 +14,6 @@ function parseFile($file, $output) {
 
   $xmlArray = explode(PHP_EOL, $xmlstring);
 
-  $line = 48;
   $diff = 0;
   $prevPos = 0;
 
@@ -49,8 +48,6 @@ function parseFile($file, $output) {
 
   file_put_contents($file, implode(PHP_EOL, $xmlArray));
 }
-
-
 
 parseFile('/System/Library/Extensions/NVDAStartup.kext/Contents/Info.plist', 'NVDAStartup.kext');
 parseFile('/System/Library/Extensions/IONDRVSupport.kext/Info.plist', 'IONDRVSupport.kext');
