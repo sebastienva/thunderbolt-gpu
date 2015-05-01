@@ -26,7 +26,6 @@ function parseFile($file, $output) {
   }
 
   foreach ($xmlArray as $key => $value) {
-
     $pos = strpos($value, '<key>CFBundleIdentifier</key>');
     if($pos > 1) {
       $prevKey = $key;
@@ -34,7 +33,6 @@ function parseFile($file, $output) {
     }
 
     if($prevKey) {
-
       if (strpos($value, '</dict>') === $prevPos) {
         addLine($key + $diff, $xmlArray);
         $diff += 2;
