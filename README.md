@@ -11,5 +11,5 @@ sudo kextcache -system-caches
 
 Tested on OS X Yosemite 10.10.3
 
-![ScreenShot](https://raw.githubusercontent.com/s-valencia/thunderbolt-gpu/master/screenshots/1.png)
-![ScreenShot](https://raw.githubusercontent.com/s-valencia/thunderbolt-gpu/master/screenshots/2.png)
+![ScreenShot](https://raw.githubusercontent.com/sebastienva/thunderbolt-gpu/master/screenshots/1.png)
+![ScreenShot](https://raw.githubusercontent.com/sebastienva/thunderbolt-gpu/master/screenshots/2.png)
