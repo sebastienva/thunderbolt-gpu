@@ -12,14 +12,18 @@ function parseFile($file, $output) {
 
   $xmlstring =  file_get_contents($file);
 
-  // backup
-  file_put_contents('backup'.time().'/'.$output, $xmlstring);
-
   $xmlArray = explode(PHP_EOL, $xmlstring);
 
   $line = 48;
   $diff = 0;
   $prevPos = 0;
+
+  foreach ($xmlArray as $key => $value) {
+    if(strpos($value, '<key>IOPCITunnelCompatible</key>') !== false) {
+      echo sprintf('%s has already been modified'.PHP_EOL, $file);
+      return;
+    }
+  }
 
   foreach ($xmlArray as $key => $value) {
 
@@ -39,16 +43,16 @@ function parseFile($file, $output) {
     }
   }
 
+  // backup
+  if(!is_dir('backup'.time())) {
+    mkdir('backup'.time());
+  }
+  file_put_contents('backup'.time().'/'.$output, $xmlstring);
+
   file_put_contents($file, implode(PHP_EOL, $xmlArray));
 }
 
-if(!is_dir('output')) {
-  mkdir('output');
-}
 
-if(!is_dir('backup'.time())) {
-  mkdir('backup'.time());
-}
 
 parseFile('/System/Library/Extensions/NVDAStartup.kext/Contents/Info.plist', 'NVDAStartup.kext');
 parseFile('/System/Library/Extensions/IONDRVSupport.kext/Info.plist', 'IONDRVSupport.kext');
