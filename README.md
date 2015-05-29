@@ -4,7 +4,7 @@ Modify drivers to enable thunderbolt graphic card on OS X
 
 
 ```
-sudo nvram boot-args="kext-dev-mode=1"
+sudo nvram boot-args="kext-dev-mode=1 nvda_drv=1"
 sudo php app.php
 sudo kextcache -system-caches
 ```
